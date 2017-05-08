@@ -1,0 +1,74 @@
+|CLA4
+x[0] => aux_c[0].IN0
+x[0] => aux_c.IN0
+x[0] => aux_c.IN0
+x[0] => aux_c.IN0
+x[0] => fulladder:stage0.x
+x[1] => aux_c.IN0
+x[1] => aux_c.IN0
+x[1] => aux_c.IN0
+x[1] => aux_c.IN0
+x[1] => aux_c.IN0
+x[1] => aux_c.IN0
+x[1] => fulladder:stage1.x
+x[2] => aux_c.IN0
+x[2] => aux_c.IN0
+x[2] => aux_c.IN0
+x[2] => aux_c.IN0
+x[2] => aux_c.IN1
+x[2] => fulladder:stage2.x
+x[3] => aux_c.IN0
+x[3] => fulladder:stage3.x
+y[0] => aux_c[0].IN1
+y[0] => aux_c.IN1
+y[0] => aux_c.IN1
+y[0] => aux_c.IN1
+y[0] => fulladder:stage0.y
+y[1] => aux_c.IN1
+y[1] => aux_c.IN1
+y[1] => aux_c.IN1
+y[1] => aux_c.IN1
+y[1] => aux_c.IN1
+y[1] => aux_c.IN1
+y[1] => fulladder:stage1.y
+y[2] => aux_c.IN1
+y[2] => aux_c.IN1
+y[2] => aux_c.IN1
+y[2] => aux_c.IN1
+y[2] => fulladder:stage2.y
+y[3] => aux_c.IN1
+y[3] => fulladder:stage3.y
+s[0] <= fulladder:stage0.signal_out
+s[1] <= fulladder:stage1.signal_out
+s[2] <= fulladder:stage2.signal_out
+s[3] <= fulladder:stage3.signal_out
+
+
+|CLA4|fullAdder:stage0
+x => signal_out.IN0
+y => signal_out.IN1
+carry_in => signal_out.IN1
+signal_out <= signal_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CLA4|fullAdder:stage1
+x => signal_out.IN0
+y => signal_out.IN1
+carry_in => signal_out.IN1
+signal_out <= signal_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CLA4|fullAdder:stage2
+x => signal_out.IN0
+y => signal_out.IN1
+carry_in => signal_out.IN1
+signal_out <= signal_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CLA4|fullAdder:stage3
+x => signal_out.IN0
+y => signal_out.IN1
+carry_in => signal_out.IN1
+signal_out <= signal_out.DB_MAX_OUTPUT_PORT_TYPE
+
+

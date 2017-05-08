@@ -1,0 +1,5 @@
+|ClockDivider
+clk => ~NO_FANOUT~
+new_clk <= new_clk.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,8 @@
+No item c o funcionamento ocorreu como o esperado. Quanto à operação do clock,
+nota-se que a operação é realizada ao soltar o push button, ou seja, o clock 
+sobe quando soltamos o push button.
+
+
+No caso do item d, o funcionamento também ocorreu como esperado, com o clock subindo
+ao ligar o switch. Para realizar a operação designada pelo modo, é necessário desligar
+e ligar novamente o switch (para que assim haja uma nova borda de subida).
