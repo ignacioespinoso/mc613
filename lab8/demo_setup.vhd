@@ -17,5 +17,9 @@ end demo_setup;
 
 architecture Comportamento of demo_setup is
 begin
-	stage1: Shifter PORT MAP(KEY(0), SW(7), SW(9 DOWNTO 8), SW (5 DOWNTO 0), LEDR(5 DOWNTO 0)); 
+	HEX0 <= "1111111";
+	HEX1 <= "1111111";
+	HEX2 <= "1111111";
+	HEX3 <= "1111111";
+	stage1: ClockDivider PORT MAP(CLOCK_50, LEDR(0)); 
 end Comportamento;

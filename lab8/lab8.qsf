@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone II"
 set_global_assignment -name DEVICE EP2C20F484C7
-set_global_assignment -name TOP_LEVEL_ENTITY ClockDivider
+set_global_assignment -name TOP_LEVEL_ENTITY demo_setup
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:03:03  MAY 03, 2017"
 set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"

@@ -1,5 +1,5 @@
 Assembler report for lab8
-Wed May  3 17:50:12 2017
+Mon May  8 15:58:02 2017
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Wed May  3 17:50:12 2017 ;
+; Assembler Status      ; Successful - Mon May  8 15:58:02 2017 ;
 ; Revision Name         ; lab8                                  ;
 ; Top-level Entity Name ; demo_setup                            ;
 ; Family                ; Cyclone II                            ;
@@ -94,8 +94,8 @@ applicable agreement for further details.
 ; Option         ; Setting           ;
 +----------------+-------------------+
 ; Device         ; EP2C20F484C7      ;
-; JTAG usercode  ; 0x001B398E        ;
-; Checksum       ; 0x001B398E        ;
+; JTAG usercode  ; 0x001B9ACF        ;
+; Checksum       ; 0x001B9ACF        ;
 +----------------+-------------------+
 
 
@@ -106,7 +106,7 @@ applicable agreement for further details.
 +--------------------+---------------+
 ; Device             ; EPCS16        ;
 ; JTAG usercode      ; 0x00000000    ;
-; Checksum           ; 0x1DD92787    ;
+; Checksum           ; 0x1DD85F9E    ;
 ; Compression Ratio  ; 3             ;
 +--------------------+---------------+
 
@@ -117,13 +117,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed May  3 17:50:10 2017
+    Info: Processing started: Mon May  8 15:58:00 2017
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off lab8 -c lab8
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 32-bit Assembler was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 340 megabytes
-    Info: Processing ended: Wed May  3 17:50:12 2017
+    Info: Processing ended: Mon May  8 15:58:02 2017
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
