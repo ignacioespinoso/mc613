@@ -1,5 +1,5 @@
 |demo_setup
-SW[0] => ~NO_FANOUT~
+SW[0] => mod10:calculate.enable
 SW[1] => ~NO_FANOUT~
 SW[2] => ~NO_FANOUT~
 SW[3] => ~NO_FANOUT~
@@ -13,16 +13,16 @@ KEY[0] => ~NO_FANOUT~
 KEY[1] => ~NO_FANOUT~
 KEY[2] => ~NO_FANOUT~
 KEY[3] => ~NO_FANOUT~
-LEDR[0] <= clockdivider:stage1.new_clk
-LEDR[1] <= <GND>
-LEDR[2] <= <GND>
-LEDR[3] <= <GND>
-LEDR[4] <= <GND>
-LEDR[5] <= <GND>
-LEDR[6] <= <GND>
-LEDR[7] <= <GND>
-LEDR[8] <= <GND>
-LEDR[9] <= <GND>
+LEDR[0] <= LEDR[0].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[1] <= LEDR[1].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[2] <= LEDR[2].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[3] <= LEDR[3].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[4] <= LEDR[4].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[5] <= LEDR[5].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[6] <= LEDR[6].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[7] <= LEDR[7].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[8] <= LEDR[8].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[9] <= LEDR[9].DB_MAX_OUTPUT_PORT_TYPE
 LEDG[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
 LEDG[1] <= LEDG[1].DB_MAX_OUTPUT_PORT_TYPE
 LEDG[2] <= LEDG[2].DB_MAX_OUTPUT_PORT_TYPE
@@ -31,13 +31,13 @@ LEDG[4] <= LEDG[4].DB_MAX_OUTPUT_PORT_TYPE
 LEDG[5] <= LEDG[5].DB_MAX_OUTPUT_PORT_TYPE
 LEDG[6] <= LEDG[6].DB_MAX_OUTPUT_PORT_TYPE
 LEDG[7] <= LEDG[7].DB_MAX_OUTPUT_PORT_TYPE
-HEX0[0] <= <VCC>
-HEX0[1] <= <VCC>
-HEX0[2] <= <VCC>
-HEX0[3] <= <VCC>
-HEX0[4] <= <VCC>
-HEX0[5] <= <VCC>
-HEX0[6] <= <VCC>
+HEX0[0] <= display_7seg:display.HEX3[6]
+HEX0[1] <= display_7seg:display.HEX3[5]
+HEX0[2] <= display_7seg:display.HEX3[4]
+HEX0[3] <= display_7seg:display.HEX3[3]
+HEX0[4] <= display_7seg:display.HEX3[2]
+HEX0[5] <= display_7seg:display.HEX3[1]
+HEX0[6] <= display_7seg:display.HEX3[0]
 HEX1[0] <= <VCC>
 HEX1[1] <= <VCC>
 HEX1[2] <= <VCC>
@@ -59,10 +59,10 @@ HEX3[3] <= <VCC>
 HEX3[4] <= <VCC>
 HEX3[5] <= <VCC>
 HEX3[6] <= <VCC>
-CLOCK_50 => clockdivider:stage1.clk
+CLOCK_50 => clockdivider:adapt_clock.clk
 
 
-|demo_setup|ClockDivider:stage1
+|demo_setup|ClockDivider:adapt_clock
 clk => new_clk~reg0.CLK
 clk => Counter[0].CLK
 clk => Counter[1].CLK
@@ -97,5 +97,78 @@ clk => Counter[29].CLK
 clk => Counter[30].CLK
 clk => Counter[31].CLK
 new_clk <= new_clk~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|demo_setup|mod10:calculate
+enable => Counter[0].ENA
+enable => Counter[1].ENA
+enable => Counter[2].ENA
+enable => Counter[3].ENA
+enable => output[0]~reg0.ENA
+enable => output[1]~reg0.ENA
+enable => output[2]~reg0.ENA
+enable => output[3]~reg0.ENA
+clk => Counter[0].CLK
+clk => Counter[1].CLK
+clk => Counter[2].CLK
+clk => Counter[3].CLK
+clk => output[0]~reg0.CLK
+clk => output[1]~reg0.CLK
+clk => output[2]~reg0.CLK
+clk => output[3]~reg0.CLK
+mode => output.OUTPUTSELECT
+mode => output.OUTPUTSELECT
+mode => output.OUTPUTSELECT
+mode => output.OUTPUTSELECT
+mode => Counter.OUTPUTSELECT
+mode => Counter.OUTPUTSELECT
+mode => Counter.OUTPUTSELECT
+mode => Counter.OUTPUTSELECT
+load[0] => output.DATAA
+load[1] => output.DATAA
+load[2] => output.DATAA
+load[3] => output.DATAA
+output[0] <= output[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+output[1] <= output[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+output[2] <= output[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+output[3] <= output[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|demo_setup|display_7seg:display
+SW[0] => Mux0.IN19
+SW[0] => Mux1.IN19
+SW[0] => Mux2.IN19
+SW[0] => Mux3.IN19
+SW[0] => Mux4.IN19
+SW[0] => Mux5.IN19
+SW[0] => Mux6.IN19
+SW[1] => Mux0.IN18
+SW[1] => Mux1.IN18
+SW[1] => Mux2.IN18
+SW[1] => Mux3.IN18
+SW[1] => Mux4.IN18
+SW[1] => Mux5.IN18
+SW[1] => Mux6.IN18
+SW[2] => Mux0.IN17
+SW[2] => Mux1.IN17
+SW[2] => Mux2.IN17
+SW[2] => Mux3.IN17
+SW[2] => Mux4.IN17
+SW[2] => Mux5.IN17
+SW[2] => Mux6.IN17
+SW[3] => Mux0.IN16
+SW[3] => Mux1.IN16
+SW[3] => Mux2.IN16
+SW[3] => Mux3.IN16
+SW[3] => Mux4.IN16
+SW[3] => Mux5.IN16
+SW[3] => Mux6.IN16
+HEX3[6] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+HEX3[5] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+HEX3[4] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+HEX3[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+HEX3[2] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+HEX3[1] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+HEX3[0] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 

@@ -16,10 +16,14 @@ entity demo_setup is
 end demo_setup;
 
 architecture Comportamento of demo_setup is
+	Signal Timer: STD_LOGIC;
+	SIGNAL module: STD_LOGIC_VECTOR(3 DOWNTO 0);
 begin
-	HEX0 <= "1111111";
+	adapt_clock: ClockDivider PORT MAP(CLOCK_50, Timer);
+	calculate: mod10 PORT MAP (SW(0), Timer, '0', "0000", module);
+	display: display_7seg PORT MAP (module, HEX0);
 	HEX1 <= "1111111";
 	HEX2 <= "1111111";
 	HEX3 <= "1111111";
-	stage1: ClockDivider PORT MAP(CLOCK_50, LEDR(0)); 
+	--stage1: ClockDivider PORT MAP(CLOCK_50, LEDR(0)); 
 end Comportamento;

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab8
-Mon May  8 15:57:51 2017
+Mon May  8 17:44:02 2017
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -15,9 +15,10 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
   9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Parameter Settings for User Entity Instance: ClockDivider:stage1
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+ 10. Parameter Settings for User Entity Instance: ClockDivider:adapt_clock
+ 11. Port Connectivity Checks: "mod10:calculate"
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -43,15 +44,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon May  8 15:57:50 2017           ;
+; Analysis & Synthesis Status        ; Successful - Mon May  8 17:44:02 2017           ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; lab8                                            ;
 ; Top-level Entity Name              ; demo_setup                                      ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 55                                              ;
-;     Total combinational functions  ; 55                                              ;
-;     Dedicated logic registers      ; 33                                              ;
-; Total registers                    ; 33                                              ;
+; Total logic elements               ; 70                                              ;
+;     Total combinational functions  ; 66                                              ;
+;     Dedicated logic registers      ; 41                                              ;
+; Total registers                    ; 41                                              ;
 ; Total pins                         ; 61                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -161,6 +162,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+-----------------+--------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                           ; Library ;
 +----------------------------------+-----------------+-----------------+--------------------------------------------------------+---------+
+; display_7seg.vhd                 ; yes             ; User VHDL File  ; /home/ec2015/ra169767/prog/mc613/lab8/display_7seg.vhd ;         ;
+; mod10.vhd                        ; yes             ; User VHDL File  ; /home/ec2015/ra169767/prog/mc613/lab8/mod10.vhd        ;         ;
 ; demo_setup.vhd                   ; yes             ; User VHDL File  ; /home/ec2015/ra169767/prog/mc613/lab8/demo_setup.vhd   ;         ;
 ; Shifter.vhd                      ; yes             ; User VHDL File  ; /home/ec2015/ra169767/prog/mc613/lab8/Shifter.vhd      ;         ;
 ; ClockDivider.vhd                 ; yes             ; User VHDL File  ; /home/ec2015/ra169767/prog/mc613/lab8/ClockDivider.vhd ;         ;
@@ -172,39 +175,41 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+----------+
 ; Resource                                    ; Usage    ;
 +---------------------------------------------+----------+
-; Estimated Total logic elements              ; 55       ;
+; Estimated Total logic elements              ; 70       ;
 ;                                             ;          ;
-; Total combinational functions               ; 55       ;
+; Total combinational functions               ; 66       ;
 ; Logic element usage by number of LUT inputs ;          ;
-;     -- 4 input functions                    ; 21       ;
-;     -- 3 input functions                    ; 1        ;
+;     -- 4 input functions                    ; 31       ;
+;     -- 3 input functions                    ; 2        ;
 ;     -- <=2 input functions                  ; 33       ;
 ;                                             ;          ;
 ; Logic elements by mode                      ;          ;
-;     -- normal mode                          ; 24       ;
+;     -- normal mode                          ; 35       ;
 ;     -- arithmetic mode                      ; 31       ;
 ;                                             ;          ;
-; Total registers                             ; 33       ;
-;     -- Dedicated logic registers            ; 33       ;
+; Total registers                             ; 41       ;
+;     -- Dedicated logic registers            ; 41       ;
 ;     -- I/O registers                        ; 0        ;
 ;                                             ;          ;
 ; I/O pins                                    ; 61       ;
 ; Embedded Multiplier 9-bit elements          ; 0        ;
 ; Maximum fan-out node                        ; CLOCK_50 ;
 ; Maximum fan-out                             ; 33       ;
-; Total fan-out                               ; 251      ;
-; Average fan-out                             ; 1.68     ;
+; Total fan-out                               ; 324      ;
+; Average fan-out                             ; 1.93     ;
 +---------------------------------------------+----------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                     ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name             ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+--------------+
-; |demo_setup                ; 55 (0)            ; 33 (0)       ; 0           ; 0            ; 0       ; 0         ; 61   ; 0            ; |demo_setup                     ; work         ;
-;    |ClockDivider:stage1|   ; 55 (55)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |demo_setup|ClockDivider:stage1 ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                             ;
++-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
+; Compilation Hierarchy Node    ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                  ; Library Name ;
++-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
+; |demo_setup                   ; 66 (0)            ; 41 (0)       ; 0           ; 0            ; 0       ; 0         ; 61   ; 0            ; |demo_setup                          ; work         ;
+;    |ClockDivider:adapt_clock| ; 55 (55)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |demo_setup|ClockDivider:adapt_clock ; work         ;
+;    |display_7seg:display|     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |demo_setup|display_7seg:display     ; work         ;
+;    |mod10:calculate|          ; 4 (4)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |demo_setup|mod10:calculate          ; work         ;
++-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -213,33 +218,43 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 33    ;
+; Total registers                              ; 41    ;
 ; Number of registers using Synchronous Clear  ; 32    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 8     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |demo_setup|ClockDivider:stage1|Counter[16] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |demo_setup|ClockDivider:adapt_clock|Counter[0] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ClockDivider:stage1 ;
-+----------------+----------+--------------------------------------+
-; Parameter Name ; Value    ; Type                                 ;
-+----------------+----------+--------------------------------------+
-; N              ; 50000000 ; Signed Integer                       ;
-+----------------+----------+--------------------------------------+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ClockDivider:adapt_clock ;
++----------------+----------+-------------------------------------------+
+; Parameter Name ; Value    ; Type                                      ;
++----------------+----------+-------------------------------------------+
+; N              ; 50000000 ; Signed Integer                            ;
++----------------+----------+-------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "mod10:calculate" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; mode ; Input ; Info     ; Stuck at GND      ;
+; load ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
 
 
 +-------------------------------+
@@ -257,9 +272,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon May  8 15:57:48 2017
+    Info: Processing started: Mon May  8 17:43:57 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab8 -c lab8
 Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file display_7seg.vhd
+    Info (12022): Found design unit 1: display_7seg-Behavior
+    Info (12023): Found entity 1: display_7seg
+Info (12021): Found 2 design units, including 1 entities, in source file mod10.vhd
+    Info (12022): Found design unit 1: mod10-Behaviour
+    Info (12023): Found entity 1: mod10
 Info (12021): Found 2 design units, including 1 entities, in source file demo_setup.vhd
     Info (12022): Found design unit 1: demo_setup-Comportamento
     Info (12023): Found entity 1: demo_setup
@@ -270,10 +291,13 @@ Info (12021): Found 2 design units, including 1 entities, in source file ClockDi
     Info (12022): Found design unit 1: ClockDivider-Behaviour
     Info (12023): Found entity 1: ClockDivider
 Info (12127): Elaborating entity "demo_setup" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at demo_setup.vhd(9): used implicit default value for signal "LEDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10541): VHDL Signal Declaration warning at demo_setup.vhd(10): used implicit default value for signal "LEDG" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10873): Using initial value X (don't care) for net "LEDR[9..1]" at demo_setup.vhd(9)
-Info (12128): Elaborating entity "ClockDivider" for hierarchy "ClockDivider:stage1"
+Info (12128): Elaborating entity "ClockDivider" for hierarchy "ClockDivider:adapt_clock"
+Info (12128): Elaborating entity "mod10" for hierarchy "mod10:calculate"
+Info (12128): Elaborating entity "display_7seg" for hierarchy "display_7seg:display"
 Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND
     Warning (13410): Pin "LEDR[1]" is stuck at GND
     Warning (13410): Pin "LEDR[2]" is stuck at GND
     Warning (13410): Pin "LEDR[3]" is stuck at GND
@@ -291,13 +315,6 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDG[5]" is stuck at GND
     Warning (13410): Pin "LEDG[6]" is stuck at GND
     Warning (13410): Pin "LEDG[7]" is stuck at GND
-    Warning (13410): Pin "HEX0[0]" is stuck at VCC
-    Warning (13410): Pin "HEX0[1]" is stuck at VCC
-    Warning (13410): Pin "HEX0[2]" is stuck at VCC
-    Warning (13410): Pin "HEX0[3]" is stuck at VCC
-    Warning (13410): Pin "HEX0[4]" is stuck at VCC
-    Warning (13410): Pin "HEX0[5]" is stuck at VCC
-    Warning (13410): Pin "HEX0[6]" is stuck at VCC
     Warning (13410): Pin "HEX1[0]" is stuck at VCC
     Warning (13410): Pin "HEX1[1]" is stuck at VCC
     Warning (13410): Pin "HEX1[2]" is stuck at VCC
@@ -321,8 +338,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX3[6]" is stuck at VCC
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 14 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[0]"
+Warning (21074): Design contains 13 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[1]"
     Warning (15610): No output dependent on input pin "SW[2]"
     Warning (15610): No output dependent on input pin "SW[3]"
@@ -336,14 +352,14 @@ Warning (21074): Design contains 14 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]"
     Warning (15610): No output dependent on input pin "KEY[2]"
     Warning (15610): No output dependent on input pin "KEY[3]"
-Info (21057): Implemented 116 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 131 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 46 output pins
-    Info (21061): Implemented 55 logic cells
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 64 warnings
-    Info: Peak virtual memory: 372 megabytes
-    Info: Processing ended: Mon May  8 15:57:51 2017
-    Info: Elapsed time: 00:00:03
+    Info (21061): Implemented 70 logic cells
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 57 warnings
+    Info: Peak virtual memory: 364 megabytes
+    Info: Processing ended: Mon May  8 17:44:02 2017
+    Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:02
 
 

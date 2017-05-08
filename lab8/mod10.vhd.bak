@@ -1,0 +1,9 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY mod10 IS
+	PORT (
+		enable : IN STD_LOGIC;
+		load: IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+		output: OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
+	)
