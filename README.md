@@ -5,4 +5,4 @@
   The course mainly teaches VHDL. As an IDE, I used Altera's Quartus 2 version 13.0sp1.
 
 ## Author
-  * **Ignácio Espinoso** - [mc613] (https://github.com/ignacioespinoso/mc613)
+  * **Ignácio Espinoso** - [mc613](https://github.com/ignacioespinoso/mc613)
