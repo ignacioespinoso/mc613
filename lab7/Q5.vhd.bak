@@ -1,0 +1,21 @@
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
+LIBRARY altera ;
+USE altera.maxplus2.all ;
+
+ENTITY Q5 IS
+	PORT ( A, B, , m, n, clk: IN STD_LOGIC ;
+		Q5 : OUT STD_LOGIC);
+END Q5;
+
+ARCHITECTURE Structure OF Q5 IS
+BEGIN
+	PROCESS(clk)
+		VARIABLE temp: std_logic;
+		BEGIN
+			IF (clk'EVENT AND clk = '0') THEN
+				temp:= (A AND NOT(temp)) OR (NOT(B) AND temp);
+			END IF;
+			Q4 <= temp;
+		END PROCESS;
+END Structure;

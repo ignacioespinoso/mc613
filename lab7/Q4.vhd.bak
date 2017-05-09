@@ -1,0 +1,19 @@
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
+LIBRARY altera ;
+USE altera.maxplus2.all ;
+
+ENTITY Q4 IS
+	PORT ( A, clk: IN STD_LOGIC ;
+		Q4 : OUT STD_LOGIC);
+END Q4;
+
+ARCHITECTURE Structure OF Q4 IS
+BEGIN
+	PROCESS(clk, A)
+		BEGIN
+			IF clk = '1' THEN
+				Q3 <= A;
+			END IF;
+		END PROCESS;
+END Structure;

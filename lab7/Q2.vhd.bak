@@ -1,0 +1,17 @@
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
+LIBRARY altera ;
+USE altera.maxplus2.all ;
+
+ENTITY Q2 IS
+	PORT ( A, B, CLOCK: IN STD_LOGIC ;
+		Q2 : OUT STD_LOGIC);
+END Q2;
+
+ARCHITECTURE Structure OF Q1 IS
+	SIGNAL not_Q, aux_Q: STD_LOGIC;
+BEGIN
+	Q1 <= aux_Q;
+	not_Q <= B NAND aux_Q;
+	aux_Q <=  A NAND not_Q;
+END Structure ;

@@ -1,0 +1,445 @@
+|Banco
+DATA_IN[0] => regn:register1.D[0]
+DATA_IN[0] => regn:register2.D[0]
+DATA_IN[0] => regn:register3.D[0]
+DATA_IN[0] => regn:register4.D[0]
+DATA_IN[0] => regn:register5.D[0]
+DATA_IN[0] => regn:register6.D[0]
+DATA_IN[0] => regn:register7.D[0]
+DATA_IN[0] => regn:register8.D[0]
+DATA_IN[1] => regn:register1.D[1]
+DATA_IN[1] => regn:register2.D[1]
+DATA_IN[1] => regn:register3.D[1]
+DATA_IN[1] => regn:register4.D[1]
+DATA_IN[1] => regn:register5.D[1]
+DATA_IN[1] => regn:register6.D[1]
+DATA_IN[1] => regn:register7.D[1]
+DATA_IN[1] => regn:register8.D[1]
+DATA_IN[2] => regn:register1.D[2]
+DATA_IN[2] => regn:register2.D[2]
+DATA_IN[2] => regn:register3.D[2]
+DATA_IN[2] => regn:register4.D[2]
+DATA_IN[2] => regn:register5.D[2]
+DATA_IN[2] => regn:register6.D[2]
+DATA_IN[2] => regn:register7.D[2]
+DATA_IN[2] => regn:register8.D[2]
+DATA_IN[3] => regn:register1.D[3]
+DATA_IN[3] => regn:register2.D[3]
+DATA_IN[3] => regn:register3.D[3]
+DATA_IN[3] => regn:register4.D[3]
+DATA_IN[3] => regn:register5.D[3]
+DATA_IN[3] => regn:register6.D[3]
+DATA_IN[3] => regn:register7.D[3]
+DATA_IN[3] => regn:register8.D[3]
+INPUT_REG_SW[0] => dec3to8:write_decoder.w[0]
+INPUT_REG_SW[1] => dec3to8:write_decoder.w[1]
+INPUT_REG_SW[2] => dec3to8:write_decoder.w[2]
+OUTPUT_REG_SW[0] => dec3to8:read_decoder.w[0]
+OUTPUT_REG_SW[1] => dec3to8:read_decoder.w[1]
+OUTPUT_REG_SW[2] => dec3to8:read_decoder.w[2]
+Wr_En => dec3to8:write_decoder.en
+Rd_En => dec3to8:read_decoder.en
+clk => regn:register1.Clock
+clk => regn:register2.Clock
+clk => regn:register3.Clock
+clk => regn:register4.Clock
+clk => regn:register5.Clock
+clk => regn:register6.Clock
+clk => regn:register7.Clock
+clk => regn:register8.Clock
+DATA_OUT[0] <= DATA_OUT[0].DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[1] <= DATA_OUT[1].DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[2] <= DATA_OUT[2].DB_MAX_OUTPUT_PORT_TYPE
+DATA_OUT[3] <= DATA_OUT[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Banco|dec3to8:write_decoder
+w[0] => Mux0.IN19
+w[0] => Mux1.IN19
+w[0] => Mux2.IN19
+w[0] => Mux3.IN19
+w[0] => Mux4.IN19
+w[0] => Mux5.IN19
+w[0] => Mux6.IN19
+w[0] => Mux7.IN19
+w[1] => Mux0.IN18
+w[1] => Mux1.IN18
+w[1] => Mux2.IN18
+w[1] => Mux3.IN18
+w[1] => Mux4.IN18
+w[1] => Mux5.IN18
+w[1] => Mux6.IN18
+w[1] => Mux7.IN18
+w[2] => Mux0.IN17
+w[2] => Mux1.IN17
+w[2] => Mux2.IN17
+w[2] => Mux3.IN17
+w[2] => Mux4.IN17
+w[2] => Mux5.IN17
+w[2] => Mux6.IN17
+w[2] => Mux7.IN17
+en => Mux0.IN16
+en => Mux1.IN16
+en => Mux2.IN16
+en => Mux3.IN16
+en => Mux4.IN16
+en => Mux5.IN16
+en => Mux6.IN16
+en => Mux7.IN16
+y[0] <= Mux7.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+y[3] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+y[4] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+y[5] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+y[6] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+y[7] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Banco|dec3to8:read_decoder
+w[0] => Mux0.IN19
+w[0] => Mux1.IN19
+w[0] => Mux2.IN19
+w[0] => Mux3.IN19
+w[0] => Mux4.IN19
+w[0] => Mux5.IN19
+w[0] => Mux6.IN19
+w[0] => Mux7.IN19
+w[1] => Mux0.IN18
+w[1] => Mux1.IN18
+w[1] => Mux2.IN18
+w[1] => Mux3.IN18
+w[1] => Mux4.IN18
+w[1] => Mux5.IN18
+w[1] => Mux6.IN18
+w[1] => Mux7.IN18
+w[2] => Mux0.IN17
+w[2] => Mux1.IN17
+w[2] => Mux2.IN17
+w[2] => Mux3.IN17
+w[2] => Mux4.IN17
+w[2] => Mux5.IN17
+w[2] => Mux6.IN17
+w[2] => Mux7.IN17
+en => Mux0.IN16
+en => Mux1.IN16
+en => Mux2.IN16
+en => Mux3.IN16
+en => Mux4.IN16
+en => Mux5.IN16
+en => Mux6.IN16
+en => Mux7.IN16
+y[0] <= Mux7.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+y[3] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+y[4] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+y[5] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+y[6] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+y[7] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Banco|RegN:register1
+D[0] => Q[0]~reg0.DATAIN
+D[1] => Q[1]~reg0.DATAIN
+D[2] => Q[2]~reg0.DATAIN
+D[3] => Q[3]~reg0.DATAIN
+Clear => Q[0]~reg0.ACLR
+Clear => Q[1]~reg0.ACLR
+Clear => Q[2]~reg0.ACLR
+Clear => Q[3]~reg0.ACLR
+Load => Q[0]~reg0.ENA
+Load => Q[1]~reg0.ENA
+Load => Q[2]~reg0.ENA
+Load => Q[3]~reg0.ENA
+Clock => Q[0]~reg0.CLK
+Clock => Q[1]~reg0.CLK
+Clock => Q[2]~reg0.CLK
+Clock => Q[3]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Banco|RegN:register2
+D[0] => Q[0]~reg0.DATAIN
+D[1] => Q[1]~reg0.DATAIN
+D[2] => Q[2]~reg0.DATAIN
+D[3] => Q[3]~reg0.DATAIN
+Clear => Q[0]~reg0.ACLR
+Clear => Q[1]~reg0.ACLR
+Clear => Q[2]~reg0.ACLR
+Clear => Q[3]~reg0.ACLR
+Load => Q[0]~reg0.ENA
+Load => Q[1]~reg0.ENA
+Load => Q[2]~reg0.ENA
+Load => Q[3]~reg0.ENA
+Clock => Q[0]~reg0.CLK
+Clock => Q[1]~reg0.CLK
+Clock => Q[2]~reg0.CLK
+Clock => Q[3]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Banco|RegN:register3
+D[0] => Q[0]~reg0.DATAIN
+D[1] => Q[1]~reg0.DATAIN
+D[2] => Q[2]~reg0.DATAIN
+D[3] => Q[3]~reg0.DATAIN
+Clear => Q[0]~reg0.ACLR
+Clear => Q[1]~reg0.ACLR
+Clear => Q[2]~reg0.ACLR
+Clear => Q[3]~reg0.ACLR
+Load => Q[0]~reg0.ENA
+Load => Q[1]~reg0.ENA
+Load => Q[2]~reg0.ENA
+Load => Q[3]~reg0.ENA
+Clock => Q[0]~reg0.CLK
+Clock => Q[1]~reg0.CLK
+Clock => Q[2]~reg0.CLK
+Clock => Q[3]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Banco|RegN:register4
+D[0] => Q[0]~reg0.DATAIN
+D[1] => Q[1]~reg0.DATAIN
+D[2] => Q[2]~reg0.DATAIN
+D[3] => Q[3]~reg0.DATAIN
+Clear => Q[0]~reg0.ACLR
+Clear => Q[1]~reg0.ACLR
+Clear => Q[2]~reg0.ACLR
+Clear => Q[3]~reg0.ACLR
+Load => Q[0]~reg0.ENA
+Load => Q[1]~reg0.ENA
+Load => Q[2]~reg0.ENA
+Load => Q[3]~reg0.ENA
+Clock => Q[0]~reg0.CLK
+Clock => Q[1]~reg0.CLK
+Clock => Q[2]~reg0.CLK
+Clock => Q[3]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Banco|RegN:register5
+D[0] => Q[0]~reg0.DATAIN
+D[1] => Q[1]~reg0.DATAIN
+D[2] => Q[2]~reg0.DATAIN
+D[3] => Q[3]~reg0.DATAIN
+Clear => Q[0]~reg0.ACLR
+Clear => Q[1]~reg0.ACLR
+Clear => Q[2]~reg0.ACLR
+Clear => Q[3]~reg0.ACLR
+Load => Q[0]~reg0.ENA
+Load => Q[1]~reg0.ENA
+Load => Q[2]~reg0.ENA
+Load => Q[3]~reg0.ENA
+Clock => Q[0]~reg0.CLK
+Clock => Q[1]~reg0.CLK
+Clock => Q[2]~reg0.CLK
+Clock => Q[3]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Banco|RegN:register6
+D[0] => Q[0]~reg0.DATAIN
+D[1] => Q[1]~reg0.DATAIN
+D[2] => Q[2]~reg0.DATAIN
+D[3] => Q[3]~reg0.DATAIN
+Clear => Q[0]~reg0.ACLR
+Clear => Q[1]~reg0.ACLR
+Clear => Q[2]~reg0.ACLR
+Clear => Q[3]~reg0.ACLR
+Load => Q[0]~reg0.ENA
+Load => Q[1]~reg0.ENA
+Load => Q[2]~reg0.ENA
+Load => Q[3]~reg0.ENA
+Clock => Q[0]~reg0.CLK
+Clock => Q[1]~reg0.CLK
+Clock => Q[2]~reg0.CLK
+Clock => Q[3]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Banco|RegN:register7
+D[0] => Q[0]~reg0.DATAIN
+D[1] => Q[1]~reg0.DATAIN
+D[2] => Q[2]~reg0.DATAIN
+D[3] => Q[3]~reg0.DATAIN
+Clear => Q[0]~reg0.ACLR
+Clear => Q[1]~reg0.ACLR
+Clear => Q[2]~reg0.ACLR
+Clear => Q[3]~reg0.ACLR
+Load => Q[0]~reg0.ENA
+Load => Q[1]~reg0.ENA
+Load => Q[2]~reg0.ENA
+Load => Q[3]~reg0.ENA
+Clock => Q[0]~reg0.CLK
+Clock => Q[1]~reg0.CLK
+Clock => Q[2]~reg0.CLK
+Clock => Q[3]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Banco|RegN:register8
+D[0] => Q[0]~reg0.DATAIN
+D[1] => Q[1]~reg0.DATAIN
+D[2] => Q[2]~reg0.DATAIN
+D[3] => Q[3]~reg0.DATAIN
+Clear => Q[0]~reg0.ACLR
+Clear => Q[1]~reg0.ACLR
+Clear => Q[2]~reg0.ACLR
+Clear => Q[3]~reg0.ACLR
+Load => Q[0]~reg0.ENA
+Load => Q[1]~reg0.ENA
+Load => Q[2]~reg0.ENA
+Load => Q[3]~reg0.ENA
+Clock => Q[0]~reg0.CLK
+Clock => Q[1]~reg0.CLK
+Clock => Q[2]~reg0.CLK
+Clock => Q[3]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Banco|tri_buffer:buffer1
+X[0] => F[0].DATAIN
+X[1] => F[1].DATAIN
+X[2] => F[2].DATAIN
+X[3] => F[3].DATAIN
+E => F[0].OE
+E => F[1].OE
+E => F[2].OE
+E => F[3].OE
+F[0] <= F[0].DB_MAX_OUTPUT_PORT_TYPE
+F[1] <= F[1].DB_MAX_OUTPUT_PORT_TYPE
+F[2] <= F[2].DB_MAX_OUTPUT_PORT_TYPE
+F[3] <= F[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Banco|tri_buffer:buffer2
+X[0] => F[0].DATAIN
+X[1] => F[1].DATAIN
+X[2] => F[2].DATAIN
+X[3] => F[3].DATAIN
+E => F[0].OE
+E => F[1].OE
+E => F[2].OE
+E => F[3].OE
+F[0] <= F[0].DB_MAX_OUTPUT_PORT_TYPE
+F[1] <= F[1].DB_MAX_OUTPUT_PORT_TYPE
+F[2] <= F[2].DB_MAX_OUTPUT_PORT_TYPE
+F[3] <= F[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Banco|tri_buffer:buffer3
+X[0] => F[0].DATAIN
+X[1] => F[1].DATAIN
+X[2] => F[2].DATAIN
+X[3] => F[3].DATAIN
+E => F[0].OE
+E => F[1].OE
+E => F[2].OE
+E => F[3].OE
+F[0] <= F[0].DB_MAX_OUTPUT_PORT_TYPE
+F[1] <= F[1].DB_MAX_OUTPUT_PORT_TYPE
+F[2] <= F[2].DB_MAX_OUTPUT_PORT_TYPE
+F[3] <= F[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Banco|tri_buffer:buffer4
+X[0] => F[0].DATAIN
+X[1] => F[1].DATAIN
+X[2] => F[2].DATAIN
+X[3] => F[3].DATAIN
+E => F[0].OE
+E => F[1].OE
+E => F[2].OE
+E => F[3].OE
+F[0] <= F[0].DB_MAX_OUTPUT_PORT_TYPE
+F[1] <= F[1].DB_MAX_OUTPUT_PORT_TYPE
+F[2] <= F[2].DB_MAX_OUTPUT_PORT_TYPE
+F[3] <= F[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Banco|tri_buffer:buffer5
+X[0] => F[0].DATAIN
+X[1] => F[1].DATAIN
+X[2] => F[2].DATAIN
+X[3] => F[3].DATAIN
+E => F[0].OE
+E => F[1].OE
+E => F[2].OE
+E => F[3].OE
+F[0] <= F[0].DB_MAX_OUTPUT_PORT_TYPE
+F[1] <= F[1].DB_MAX_OUTPUT_PORT_TYPE
+F[2] <= F[2].DB_MAX_OUTPUT_PORT_TYPE
+F[3] <= F[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Banco|tri_buffer:buffer6
+X[0] => F[0].DATAIN
+X[1] => F[1].DATAIN
+X[2] => F[2].DATAIN
+X[3] => F[3].DATAIN
+E => F[0].OE
+E => F[1].OE
+E => F[2].OE
+E => F[3].OE
+F[0] <= F[0].DB_MAX_OUTPUT_PORT_TYPE
+F[1] <= F[1].DB_MAX_OUTPUT_PORT_TYPE
+F[2] <= F[2].DB_MAX_OUTPUT_PORT_TYPE
+F[3] <= F[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Banco|tri_buffer:buffer7
+X[0] => F[0].DATAIN
+X[1] => F[1].DATAIN
+X[2] => F[2].DATAIN
+X[3] => F[3].DATAIN
+E => F[0].OE
+E => F[1].OE
+E => F[2].OE
+E => F[3].OE
+F[0] <= F[0].DB_MAX_OUTPUT_PORT_TYPE
+F[1] <= F[1].DB_MAX_OUTPUT_PORT_TYPE
+F[2] <= F[2].DB_MAX_OUTPUT_PORT_TYPE
+F[3] <= F[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Banco|tri_buffer:buffer8
+X[0] => F[0].DATAIN
+X[1] => F[1].DATAIN
+X[2] => F[2].DATAIN
+X[3] => F[3].DATAIN
+E => F[0].OE
+E => F[1].OE
+E => F[2].OE
+E => F[3].OE
+F[0] <= F[0].DB_MAX_OUTPUT_PORT_TYPE
+F[1] <= F[1].DB_MAX_OUTPUT_PORT_TYPE
+F[2] <= F[2].DB_MAX_OUTPUT_PORT_TYPE
+F[3] <= F[3].DB_MAX_OUTPUT_PORT_TYPE
+
+

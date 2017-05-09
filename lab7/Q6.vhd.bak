@@ -1,0 +1,19 @@
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
+LIBRARY altera ;
+USE altera.maxplus2.all ;
+
+ENTITY Q6 IS
+	PORT ( B, clk: IN STD_LOGIC ;
+		Q6 : OUT STD_LOGIC);
+END Q4;
+
+ARCHITECTURE Structure OF Q6 IS
+BEGIN
+	PROCESS(clk)
+		VARIABLE temp: std_logic;
+		BEGIN
+			temp <= NOT(temp);
+			Q4 <= temp;
+		END PROCESS;
+END Structure;
