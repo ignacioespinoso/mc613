@@ -17,19 +17,20 @@ ARCHITECTURE Behaviour OF mod10 IS
 BEGIN
 	PROCESS(enable, clk, mode)
 	BEGIN
-		IF (rising_edge(clk)) THEN
-			IF enable = '1' THEN
-				IF mode = '0' THEN --mode = 0 implica ser o modo de contagem.
-						IF Counter < "1001" THEN
-							output <= Counter;
-							Counter <= Counter + "0001";
-						ELSE
-							Counter <= "0000";
-							output <= Counter;
-						END IF;
-				ELSE --O outro modo eh o de carga.
-					output <= load;
+		IF enable = '1' THEN
+			IF (rising_edge(clk)) THEN
+				IF mode = '0' THEN 												--mode = 0 implica ser o modo de contagem.
+					IF Counter < "1001" THEN
+						output <= Counter;
+						Counter <= Counter + "0001";
+					ELSE
+						Counter <= "0000";
+						output <= Counter;
+					END IF;
 				END IF;
+			END IF;
+			IF mode = '1' THEN													--O outro modo eh o de carga.
+				output <= load;
 			END IF;
 		END IF;
 	END PROCESS;

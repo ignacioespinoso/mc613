@@ -1,0 +1,94 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.std_logic_arith.all;
+use ieee.numeric_std.all;
+library work;
+use work.all;
+
+entity Relogio is
+	port (
+		mode, h_s, load, clk: in std_logic;
+		load_value: in std_logic_vector (3 downto 0);
+		load_digit: in std_logic_vector (1 downto 0);
+		display0 : out std_logic_vector(6 downto 0);
+		display1 : out std_logic_vector(6 downto 0);
+		display2 : out std_logic_vector(6 downto 0);
+		display3 : out std_logic_vector(6 downto 0)
+	);
+end Relogio;
+
+architecture Comportamento of Relogio is
+	Signal Timer: STD_LOGIC;
+	SIGNAL sec1,sec2, min1, min2, h1, h2: STD_LOGIC_VECTOR(3 DOWNTO 0);
+	SIGNAL load_sec2, load_min1, load_min2, load_h1, load_h2: STD_LOGIC_VECTOR(3 DOWNTO 0);
+begin
+	adapt_clock: ClockDivider PORT MAP(CLOCK_50, Timer);				--Cria clock de 1Hz.
+	second1: mod10 PORT MAP ('1', Timer, '0', "0000", sec1);		--Instanciacao dos digitos.
+	second2: mod10 PORT MAP ('1', Timer, '1', load_sec2, sec2);
+	minute1: mod10 PORT MAP ('1', Timer, '1', load_min1, min1);
+	minute2: mod10 PORT MAP ('1', Timer, '1', load_min2, min2);
+	hour1: mod10 PORT MAP ('1', Timer, '1', load_h1, h1);
+	hour2: mod10 PORT MAP ('1', Timer, '1', load_h2, h2);
+	
+	IF sec1 = "1001" THEN
+		load_sec2 <= load_sec2 + "0001";										--Atualiza a dezena de segundo se a unidade e 9.
+	END IF;
+		
+	IF (sec2 = "0101" AND sec1 = "1001") THEN											
+		load_min1 <= load_min1 + "0001";										--Atualiza a unidade de minuto se 59 segundos se passaram.
+	END IF;
+		
+	IF (min1 = "1001" AND sec2 = "0101" AND sec1 = "1001") THEN
+		load_min2 <= load_min2 + "0001";										--Atualiza a dezena de minuto se 9 minutos e 59 segundos se passaram.
+	END IF;
+		
+	IF (min2 = "0101" AND min1 = "1001" AND sec2 = "0101" AND sec1 = "1001") THEN
+		load_h1 <= load_h1 + "0001";											--Atualiza a unidade de hora se 59 minutos e 59 segundos se passaram.
+	END IF;
+		
+	IF (h1 = "1001" AND min2 = "0101" AND min1 = "1001" AND sec2 = "0101" AND sec1 = "1001") THEN
+		load_h2 <= load_h2 + "0001";											--Atualiza a dezena de hora se 9 horas, 59 minutos e 59 segundos se passaram.
+	END IF;
+		
+	IF (h2 = "0010" AND h1 = "0100" AND min2 = "0101" AND min1 = "1001" AND sec2 = "0101" AND sec1 = "1001") THEN
+		load_h2 <= "0000";														--Zera o relogio caso 24 horas tenham se passado.
+		load_h1 <= "0000";
+		load_sec2 <= "0000";
+		load_min1 <= "0000";
+		load_min2 <= "0000";
+	END IF;
+	
+	PROCESS (mode, load)															--Processo referente à configuracao de valores no relogio.
+	BEGIN
+		IF(mode = '1' AND load_value <= "1001") THEN						--'1' Corresponde ao modo set.
+			IF load_digit = "00" THEN
+				min1 <= load_value;
+			ELSIF load_digit = "01" THEN
+				min2 <= load_value;
+			ELSIF load_digit = "10" THEN
+				h1 <= load_value;
+			ELSIF (load_digit = "11" AND load_value <= "0010") THEN
+				h2 <= load_value;
+			END IF;
+		ELSIF(mode'EVENT AND mode = '0') THEN								--Zera os segundos ao retornar ao modo normal.
+			sec1 <= "0000";
+			sec2 <= "0000";
+		END IF;
+	END PROCESS;
+	
+	PROCESS(h_s)																	--Processo referente ao display do relogio.
+	BEGIN
+		IF(h_s = "0") THEN
+			disp_0_0: display_7seg PORT MAP (sec1, display0);
+			disp_0_1: display_7seg PORT MAP (sec2, display1);
+			disp_0_2: display_7seg PORT MAP (min1, display2);
+			disp_0_3: display_7seg PORT MAP (min2, display3);
+		ELSE
+			disp_1_0: display_7seg PORT MAP (min1, display0);
+			disp_1_1: display_7seg PORT MAP (min2, display1);
+			disp_1_2: display_7seg PORT MAP (h1, display2);
+			disp_1_3: display_7seg PORT MAP (h2, display3);
+		END IF;
+	END PROCESS;
+end Comportamento;
