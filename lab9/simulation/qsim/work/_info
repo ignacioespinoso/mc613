@@ -1,0 +1,85 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\Nacho\Estudos\UNICAMP\Matérias\MC613\lab9\simulation\qsim
+vMaquina1
+Z1 !s100 j>7kH`104MzWTbj7GZ?P70
+Z2 IZWkiJ];cE;d`76e_NCaF>3
+Z3 V^KcO]D@D_k@4U2RJ0T91b2
+Z4 dD:\Nacho\Estudos\UNICAMP\Matérias\MC613\lab9\simulation\qsim
+Z5 w1495552181
+Z6 8lab9.vo
+Z7 Flab9.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|lab9.vo|
+Z10 o-work work -O0
+Z11 n@maquina1
+!i10b 1
+!s85 0
+Z12 !s108 1495552184.173000
+Z13 !s107 lab9.vo|
+!s101 -O0
+vMaquina1_vlg_check_tst
+!i10b 1
+Z14 !s100 Zfe<oBHC2_jOkI]9]hT[n0
+Z15 I2_W>]9YkJ24Yi=nUE2_L91
+Z16 V]0jNR0N6dONXl;kGA9Rbz2
+R4
+R5
+Z17 8lab9.vt
+Z18 Flab9.vt
+L0 61
+R8
+r1
+!s85 0
+31
+Z19 !s108 1495552184.750000
+Z20 !s107 lab9.vt|
+Z21 !s90 -work|work|lab9.vt|
+!s101 -O0
+R10
+Z22 n@maquina1_vlg_check_tst
+vMaquina1_vlg_sample_tst
+!i10b 1
+Z23 !s100 ?OOXeGPc^3b2hc>imcOVJ3
+Z24 I0oZ;dQmVEae3o5AeHgQe22
+Z25 Vo>Oh@jBWEBVlRRJJiPjdA3
+R4
+R5
+R17
+R18
+L0 29
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10
+Z26 n@maquina1_vlg_sample_tst
+vMaquina1_vlg_vec_tst
+!i10b 1
+!s100 8TT>;83[[A[1b7JC`AN[X3
+Ih@QeIJNkOb_ZF=OR;:f<J2
+Z27 VmYNR67OX@9W:GM];RV[kF3
+R4
+R5
+R17
+R18
+Z28 L0 159
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10
+Z29 n@maquina1_vlg_vec_tst
