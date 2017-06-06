@@ -1,5 +1,13 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="lab10">
+		<CBX_INST_ENTRY INSTANCE_NAME="|RAMComplexa|RAM:\G1:0:line1|altsyncram:ram_rtl_0" CBX_FILE_NAME="altsyncram_a941.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|RAMComplexa|RAM:\G1:2:line1|altsyncram:ram_rtl_0" CBX_FILE_NAME="altsyncram_a941.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|RAMComplexa|RAM:\G2:0:line2|altsyncram:ram_rtl_0" CBX_FILE_NAME="altsyncram_a941.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|RAMComplexa|RAM:\G2:2:line2|altsyncram:ram_rtl_0" CBX_FILE_NAME="altsyncram_a941.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|RAMComplexa|RAM:\G1:1:line1|altsyncram:ram_rtl_0" CBX_FILE_NAME="altsyncram_a941.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|RAMComplexa|RAM:\G1:3:line1|altsyncram:ram_rtl_0" CBX_FILE_NAME="altsyncram_a941.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|RAMComplexa|RAM:\G2:1:line2|altsyncram:ram_rtl_0" CBX_FILE_NAME="altsyncram_a941.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|RAMComplexa|RAM:\G2:3:line2|altsyncram:ram_rtl_0" CBX_FILE_NAME="altsyncram_a941.tdf"/>
 	</PROJECT>
 </LOG_ROOT>
